@@ -2,7 +2,7 @@
 import functions from './daily'
 
 // 8th Daily:- loopStaff each / map - October 25, 2019
-
+// bllllllllllllllj
 test('For each email builder for company', () => {
     const eachStaffEmail = functions.loopStaffForEach(data.staff);
     expect(eachStaffEmail[0])
