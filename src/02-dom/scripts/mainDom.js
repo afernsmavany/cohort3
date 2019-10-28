@@ -4,6 +4,4 @@ container.addEventListener("click", (event) => {
   console.log(event.target);
 });
 
-show.addEventListener("click", (event) => {
-  console.log(event.target.);
-});
+show.addEventListener("click", displayChild());

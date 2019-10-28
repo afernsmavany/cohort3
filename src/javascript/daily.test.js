@@ -1,21 +1,29 @@
 
 import functions from './daily'
 
+// 8th Daily:- loopStaff each / map - October 25, 2019
+
+test('For each email builder for company', () => {
+    const eachStaffEmail = functions.loopStaffForEach(data.staff);
+    expect(eachStaffEmail[0])
+        .toEqual("jane.smith@evolveu.ca");
+    expect(eachStaffEmail[3])
+        .toEqual("olivia.notly@evolveu.ca");
+    expect(eachStaffEmail[6])
+        .toEqual("benjamin.amis@evolveu.ca");
+});
+
+test('Map email builder for company', () => {
+    const mapStaffEmail = functions.loopStaffMap(data.staff);
+    expect(mapStaffEmail[0])
+        .toEqual("jane.smith@evolveu.ca");
+    expect(mapStaffEmail[3])
+        .toEqual("olivia.notly@evolveu.ca");
+    expect(mapStaffEmail[6])
+        .toEqual("benjamin.amis@evolveu.ca");
+});
+
 // 7th Daily:- loopStaff: in / of - October 24, 2019
-const data = {
-    staff: [
-        { fname: "Jane", lname: "Smith", balance: 10 },
-        { fname: "Liam", lname: "Henry", balance: 1000 },
-        { fname: "Emma", lname: "Jones", balance: 1330 },
-        { fname: "Olivia", lname: "Notly", balance: 310 },
-        { fname: "Noah", lname: "Ho", balance: 503 },
-        { fname: "William", lname: "Lee", balance: 520 },
-        { fname: "Benjamin", lname: "Amis", balance: 150 },
-    ],
-    company: "EvolveU",
-    city: "Calgary",
-    prov: "Alberta"
-};
 
 test('For in loop Staff Email for company', () => {
     const loopStaffEmail = functions.loopStaffIn(data.staff);
@@ -28,12 +36,12 @@ test('For in loop Staff Email for company', () => {
 });
 
 test('For of loop Staff Email for company', () => {
-    const loopStaffEmail = functions.loopStaffOf(data.staff);
-    expect(loopStaffEmail[0])
+    const ofStaffEmail = functions.loopStaffOf(data.staff);
+    expect(ofStaffEmail[0])
         .toEqual("jane.smith@evolveu.ca");
-    expect(loopStaffEmail[3])
+    expect(ofStaffEmail[3])
         .toEqual("olivia.notly@evolveu.ca");
-    expect(loopStaffEmail[6])
+    expect(ofStaffEmail[6])
         .toEqual("benjamin.amis@evolveu.ca");
 });
 

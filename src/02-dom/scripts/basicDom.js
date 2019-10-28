@@ -1,12 +1,11 @@
 const domFunc = {
 
   displayChild: () => {
-  return orderedList.children;
-  },
+  let list = orderedList.children;
+  return list;  
+},
 
 };
-
-
 
 
 export default domFunc;
