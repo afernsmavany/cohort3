@@ -48,15 +48,23 @@ const functions = {
   // call makeEmailObj that you have written in a previous exercise. 
   // Copy and paste the code provided and you know the rest of the stick...Test first.
 
-
   loopStaff: (staff) => {
     let staffEmail = [];
-    for (let i =0; i <= staff.length; i++) {
-      let emailsEach = functions.makeEmailObj(staff);
+    staff.forEach(function (element) {
+      let emailsEach = functions.makeEmailObj(element);
       staffEmail.push(emailsEach);
-    };
+    });
     return staffEmail;
   },
+
+  // loopStaff: (staff) => {
+  //   let staffEmail = [];
+  //   for (let i =0; i <= staff.length; i++) {
+  //     let emailsEach = functions.makeEmailObj(i);
+  //     staffEmail.push(emailsEach);
+  //   };
+  //   return staffEmail;
+  // },
 
   // 5th Daily: More Array Work - (October 16-17) 
   // Continue from yesterday. Read the article:
