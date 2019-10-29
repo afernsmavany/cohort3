@@ -75,6 +75,7 @@ total.addEventListener("click", () => {
 
 clear.addEventListener("click", () => {
     let outputClear = arrayFunc.clearing(originArr);
+    messageFinal.innerText = outputClear;
 });
 
 // ------------------ Working with Dictionaries: -------------------------------

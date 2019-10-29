@@ -1,4 +1,4 @@
-import functions from './basicDom.js';
+import domFunc from './basicDom.js';
 
 container.addEventListener("click", (event) => {
   console.log(event.target);
