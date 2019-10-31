@@ -1,11 +1,21 @@
-const domFunc = {
+const functions = {
 
-  displayChild: () => {
-  let list = orderedList.children;
-  return list;  
-},
+  addListItem: (inputVal) => {
+    const ordList = document.querySelector("#orderedList");
+    const li = document.createElement("li");
+    const text = document.createTextNode(inputVal);
+    li.appendChild(text);
+    ordList.appendChild(li);
+  },
+
+  showItems: (ol, showDiv) => {
+    showDiv.textContent = ol.textContent;
+  },
+
+  deleteItem: (ol) => {
+    ol.lastElementChild.remove();
+  }
 
 };
 
-
-export default domFunc;
+export default functions;

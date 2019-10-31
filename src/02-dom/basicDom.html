@@ -1,35 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel = "stylesheet" type = "text/css" href = "./index.css">
+    
 </head>
-
 <body>
-  <title>Basic DOM</title>
-  <link rel="stylesheet" href="basicDom.css">
-  <div id = "container">
-    <h1>
-      Basic DOM
-    </h1>
-    <h3>
-      This is a list of stuff
-    </h3>
-    <br>
-    <ol id = "orderedList">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ol id = "orderedList"><br>
-    <button id="show" type="button">Show</button>
-    <button id="add" type="button">Add</button>
-  </div>
+    <div id = "container">
+        <h1>Basic DOM</h1>
+        <p>This is a list of stuff</p>
+        <ol id = "orderedList">
+            <li class = "listItem">Item 1</li>
+            <li class = "listItem">Item 2</li>
+            <li class = "listItem">Item 3</li>
 
-  <script src="./mainDom.js" type="module"></script>
-  
-  <!-- <script src = "./basicDom.js" type ="module"></script> -->
-</body>
+        </ol>
+        <input id = "inpt" type ="text" placeholder ="Add an item to list">
+        <button type = "button" id = "add"> Add </button>
+        <button type = "button" id = "del">Delete</button>
+        <button type = "button" id = "show">Show</button>  
+        
+        <div id = "showDiv">
 
-</html>
+        </div>
+    </div>
+     
+    <script type = "module" src = "./scripts/mainDom.js"></script>
+  </body>
+</html> 

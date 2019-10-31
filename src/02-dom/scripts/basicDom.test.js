@@ -1,5 +1,16 @@
-import domFunc from './basicDom.js';
+import functions from './basicDom.js';
 
-test('Check children', () => {
-  expect(functions.displayChild()).toEqual("Item 1", "Item 2", "Item 3");
+test('check Add ', () => {
+
+  const ol = document.createElement("ol");
+  document.body.appendChild(ol);
+  ol.id = "orderedList";
+  let listCount = ol.childElementCount;
+
+  functions.addListItem("star");
+  // console.log(listCount,  ol.childElementCount);
+  functions.addListItem("cat");
+  // console.log(listCount,  ol.childElementCount);
+
+  expect(ol.childElementCount).toEqual(listCount + 2);
 });

@@ -1,8 +1,30 @@
+
+// 9th Daily:- More Array Exercises - October 29, 2019
+// write a function to receive the same array (staff) and return the total of balances
+// write a function to receive the same array (staff) and return the average the balances
+
+const functions = {
+
+totalBalances: () => {
+let totals = [];
+  
+
+
+return ;
+},
+
+avgBalances: () => {
+return ;
+},
+
+
+
+
+
+
 // 8th Daily:- loopStaff each / map - October 25, 2019
 // Do the same assignment again, but this time use callback functions. 
 // Use the ‘forEach’ and ‘map’ built-in functions.
-
-const functions = {
 
   loopStaffForEach: (staff) => {
     let eachStaffEmail = [];

@@ -1,6 +1,24 @@
 
 import functions from './daily'
 
+// 9th Daily:- More Array Exercises - October 29, 2019
+
+test('To return the total of balances', () => {
+    expect(functions.totalBalances([10, 223, 345])).toEqual([8, 16, 24])
+});
+
+
+{ fname: "Jane", lname: "Smith", balance: 10 },
+{ fname: "Liam", lname: "Henry", balance: 1000 },
+{ fname: "Emma", lname: "Jones", balance: 1330 },
+
+
+test('To return the average balance', () => {
+    const eachStaffEmail = functions.loopStaffForEach(data.staff);
+    expect(eachStaffEmail[0]).toEqual("jane.smith@evolveu.ca");
+});
+
+
 // 8th Daily:- loopStaff each / map - October 25, 2019
 
 test('For each email builder for company', () => {
