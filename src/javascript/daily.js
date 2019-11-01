@@ -5,26 +5,44 @@
 
 const functions = {
 
-totalBalances: () => {
-let totals = [];
-  
-
-
-return ;
+  totalOfBalance: (staff) => {
+    //return "";
+    
+    let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
+    let newBalanceArray=[];
+    for (var i=0; i < staff.length;i++) {
+        newBalanceArray.push(staff[i].balance);
+    }
+    return newBalanceArray.reduce(reducer);
 },
 
-avgBalances: () => {
-return ;
+averageOfBalance: (staff) => {
+    //return "";
+    let averageBalance=0;
+    let totalBalance=0;
+    let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
+    let newBalanceArray=[];
+    for (var i=0; i < staff.length;i++) {
+        newBalanceArray.push(staff[i].balance);
+    }
+    totalBalance = (newBalanceArray.reduce(reducer));
+    averageBalance= totalBalance / newBalanceArray.length;
+    return Math.round(averageBalance);
 },
 
+  // totalBalances: () => {
+  // let totals = [];
 
+  // return ;
+  // },
 
+  // avgBalances: () => {
+  // return ;
+  // },
 
-
-
-// 8th Daily:- loopStaff each / map - October 25, 2019
-// Do the same assignment again, but this time use callback functions. 
-// Use the ‘forEach’ and ‘map’ built-in functions.
+  // 8th Daily:- loopStaff each / map - October 25, 2019
+  // Do the same assignment again, but this time use callback functions. 
+  // Use the ‘forEach’ and ‘map’ built-in functions.
 
   loopStaffForEach: (staff) => {
     let eachStaffEmail = [];
@@ -34,7 +52,7 @@ return ;
     });
     return eachStaffEmail;
   },
-   
+
   loopStaffMap: (staff) => {
     let mapStaffEmail = staff.map((elements) => {
       return functions.makeEmailObj(elements);
@@ -42,9 +60,9 @@ return ;
     return mapStaffEmail;
   },
 
-// 7th Daily:- loopStaff: in / of - October 24, 2019
-// Do the same assignment as the last one using the two forms of the “for” statement. 
-// Create your own tests but use the function names that are provided below.
+  // 7th Daily:- loopStaff: in / of - October 24, 2019
+  // Do the same assignment as the last one using the two forms of the “for” statement. 
+  // Create your own tests but use the function names that are provided below.
 
   loopStaffIn: (data) => {
     let loopStaffEmail = [];
