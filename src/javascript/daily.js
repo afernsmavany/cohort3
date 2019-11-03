@@ -5,40 +5,24 @@
 
 const functions = {
 
-  totalOfBalance: (staff) => {
-    //return "";
-    
-    let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
-    let newBalanceArray=[];
-    for (var i=0; i < staff.length;i++) {
-        newBalanceArray.push(staff[i].balance);
+  totalBalances: (staff) => {
+    let balanceArr = [];
+    for (let i = 0; i < staff.length; i++) {
+      balanceArr.push(staff[i].balance);
     }
-    return newBalanceArray.reduce(reducer);
-},
+    let total = balanceArr.reduce((acc, curr) => acc + curr);
+    return total;
+  },
 
-averageOfBalance: (staff) => {
-    //return "";
-    let averageBalance=0;
-    let totalBalance=0;
-    let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
-    let newBalanceArray=[];
-    for (var i=0; i < staff.length;i++) {
-        newBalanceArray.push(staff[i].balance);
+  avgBalances: (staff) => {
+    let avgArr = [];
+    for (let i = 0; i < staff.length; i++) {
+      avgArr.push(staff[i].balance);
     }
-    totalBalance = (newBalanceArray.reduce(reducer));
-    averageBalance= totalBalance / newBalanceArray.length;
-    return Math.round(averageBalance);
-},
-
-  // totalBalances: () => {
-  // let totals = [];
-
-  // return ;
-  // },
-
-  // avgBalances: () => {
-  // return ;
-  // },
+    let total = avgArr.reduce((acc, curr) => acc + curr);
+    let average = total / (staff.length);
+    return Math.round(average);
+  },
 
   // 8th Daily:- loopStaff each / map - October 25, 2019
   // Do the same assignment again, but this time use callback functions. 
@@ -107,8 +91,6 @@ averageOfBalance: (staff) => {
   // },
 
   // 5th Daily: More Array Work - (October 16-17) 
-  // Continue from yesterday. Read the article:
-  // https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d 
   // Read the documentation on the following and create examples of each one:
   //   slice
   //   splice
@@ -273,3 +255,27 @@ export default functions;
 
 
 
+//   totalOfBalance: (staff) => {
+//     //return "";
+
+//     let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
+//     let newBalanceArray=[];
+//     for (var i=0; i < staff.length;i++) {
+//         newBalanceArray.push(staff[i].balance);
+//     }
+//     return newBalanceArray.reduce(reducer);
+// },
+
+// averageOfBalance: (staff) => {
+//     //return "";
+//     let averageBalance=0;
+//     let totalBalance=0;
+//     let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
+//     let newBalanceArray=[];
+//     for (var i=0; i < staff.length;i++) {
+//         newBalanceArray.push(staff[i].balance);
+//     }
+//     totalBalance = (newBalanceArray.reduce(reducer));
+//     averageBalance= totalBalance / newBalanceArray.length;
+//     return Math.round(averageBalance);
+// },
