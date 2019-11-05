@@ -19,4 +19,48 @@ del.addEventListener("click", () => {
 
 show.addEventListener("click", () => {
   functions.showItems(ordList, showCont);
-})
+});
+
+// Exercise 2
+
+idLeftPanel.addEventListener("click", (event) => {
+  console.log("Ex2Click:", event.target);
+  let idLeftClick = event.target.id;
+  console.log("leftClick:", idLeftClick);
+
+  let elClicked = event.target;
+  switch (elClicked.className) {
+    case "addCard": {
+      console.log("inAddCard Case :", event.target);
+      const newCard = functions.addCard(idLeftPanel);
+      break;
+    }
+    case "addBef": {
+      //console.log("addBef Case :", event.target.parentElement.);
+
+      let parentposition = elClicked.parentElement;
+      // position = "beforebegin";  property of the method           
+      const newCard = functions.positionCard(parentposition, "beforebegin")
+      break;
+    }
+    case "addAft": {
+      //console.log("addBef Case :", event.target.parentElement.);
+
+      let parentposition = elClicked.parentElement;
+      const newCard = functions.positionCard(parentposition, "afterend");
+      break;
+
+    }
+
+    case "del": {
+      console.log("inDel :", event.target.parentElement);
+      let parentposition = elClicked.parentElement;
+      const newCard = functions.delCard(parentposition);
+      //console.log("in del newCard",newCard);
+      break;
+    }
+
+    default: {
+      console.log("Not Programmed for :", event.target);
+    }
+  }

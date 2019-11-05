@@ -7,7 +7,7 @@ const functions = {
 
   totalBalances: (staff) => {
     let balanceArr = [];
-    for (let i = 0; i < staff.length; i++) {
+    for (let i in staff) {
       balanceArr.push(staff[i].balance);
     }
     let total = balanceArr.reduce((acc, curr) => acc + curr);
@@ -16,7 +16,7 @@ const functions = {
 
   avgBalances: (staff) => {
     let avgArr = [];
-    for (let i = 0; i < staff.length; i++) {
+    for (let i in staff) {
       avgArr.push(staff[i].balance);
     }
     let total = avgArr.reduce((acc, curr) => acc + curr);
@@ -255,27 +255,3 @@ export default functions;
 
 
 
-//   totalOfBalance: (staff) => {
-//     //return "";
-
-//     let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
-//     let newBalanceArray=[];
-//     for (var i=0; i < staff.length;i++) {
-//         newBalanceArray.push(staff[i].balance);
-//     }
-//     return newBalanceArray.reduce(reducer);
-// },
-
-// averageOfBalance: (staff) => {
-//     //return "";
-//     let averageBalance=0;
-//     let totalBalance=0;
-//     let reducer = (accumulator, currentValue) => { return accumulator + currentValue;};
-//     let newBalanceArray=[];
-//     for (var i=0; i < staff.length;i++) {
-//         newBalanceArray.push(staff[i].balance);
-//     }
-//     totalBalance = (newBalanceArray.reduce(reducer));
-//     averageBalance= totalBalance / newBalanceArray.length;
-//     return Math.round(averageBalance);
-// },
