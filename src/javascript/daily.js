@@ -1,9 +1,17 @@
 
+// 10th Daily:- More Array Exercises (Really) - November 6, 2019
+// Using one of the callback functions we researched in the last exercise (but may have not used previously) 
+// create a new array for balances >= 1000 from the staff data. 
+
+const functions = {
+
+filterBalances: (arr) => {
+  return arr.filter((item) => {return item.balance>=1000});
+},
+
 // 9th Daily:- More Array Exercises - October 29, 2019
 // write a function to receive the same array (staff) and return the total of balances
 // write a function to receive the same array (staff) and return the average the balances
-
-const functions = {
 
   totalBalances: (staff) => {
     let balanceArr = [];

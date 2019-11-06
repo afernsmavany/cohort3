@@ -1,6 +1,18 @@
 
 import functions from './daily'
 
+// 10th Daily:- More Array Exercises (Really) - November 6, 2019
+
+test('To return balances >= 1000', () => {
+    expect(functions.filterBalances(data.staff)).toEqual([{ fname: "Liam", lname: "Henry", balance: 1000 },
+    { fname: "Emma", lname: "Jones", balance: 1330 },]);
+
+    // OR:
+    const staffFilter= functions.filterBalances(data.staff);
+    expect(staffFilter).toEqual([{ fname: "Liam", lname: "Henry", balance: 1000 },
+    { fname: "Emma", lname: "Jones", balance: 1330 }])
+});
+
 // 9th Daily:- More Array Exercises - October 29, 2019
 
 test('To return the total of balances', () => {
