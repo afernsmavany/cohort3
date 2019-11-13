@@ -40,12 +40,13 @@ class AccountController {
   }
 
   highestAccount() {
-    let highestVal = this.accountList.reduce((a, b) => {return Math.max(a, b)});
-    return highestVal;
+    return this.accountList.sort((a,b) => b.balance - a.balance)[0];
+    // let highestVal = this.accountList.reduce((a, b) => {return Math.max(a, b)});
+    // return highestVal;
   }
 
   lowestAccount() {
-    return this.accountList.reduce((a, b) => {return Math.min(a, b)});
+    return this.accountList.sort((a,b) => a.balance - b.balance)[0];
   }
 
 }

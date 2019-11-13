@@ -47,12 +47,12 @@ describe('Account Controller Tests', () => {
 
   test('Check Account with Highest balance', () => {
     accountManager.highestAccount();
-    expect(accountManager.highestAccount()).toEqual("Savings Account", 2000);
+    expect(accountManager.highestAccount()).toEqual({"accountName": "Savings Account", "balance": 2000});
   });
 
   test('Check Account with Lowest balance', () => {
     accountManager.lowestAccount();
-    expect(accountManager.lowestAccount()).toEqual("Checking Account", 1000);
+    expect(accountManager.lowestAccount()).toEqual({"accountName": "Checking Account", "balance": 1000});
   });
 
 });
