@@ -14,7 +14,7 @@ describe('Account Tests', () => {
   });
 
   test('Check withdrawal', () => {
-    checkingAccount.withdraw(30);
+    checkingAccount.withdrawal(30);
     expect(checkingAccount.balance).toEqual(5);
   });
 
@@ -54,7 +54,6 @@ describe('Account Controller Tests', () => {
     accountManager.lowestAccount();
     expect(accountManager.lowestAccount()).toEqual("Checking Account", 1000);
   });
-
 
 });
 

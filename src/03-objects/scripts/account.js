@@ -10,7 +10,7 @@ class Account {
     this.balance += amount;
   }
 
-  withdraw(amount) {
+  withdrawal(amount) {
     this.balance -= amount;
   }
 
@@ -24,7 +24,7 @@ class AccountController {
   constructor() {
     this.accountList = [];
   }
-
+  
   createAccount(accountName, balance) {
     this.accountList.push(new Account(accountName, balance));
   }
