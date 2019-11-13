@@ -9,30 +9,20 @@ const showCont = showDiv;
 
 addBtn.addEventListener("click", () => {
     if (inpt.value.length > 1) {
-
         functions.addListItem(inpt.value, ordList);
         inpt.value = "";
-
     }
-
 });
 
 delBtn.addEventListener("click", () => {
     if (ordList.childElementCount > 0) {
-
         functions.deleteItem(ordList);
-
     }
-
 });
 
 showBtn.addEventListener("click", () => {
-
     functions.showItems(ordList, showCont);
-
 })
-
-
 
 // Exercise 2
 
@@ -53,16 +43,16 @@ idLeftPanel.addEventListener("click", (event) => {
 
             let parentposition = elClicked.parentElement;
             // position = "beforebegin";  property of the method           
-            const newCard  =  functions.positionCard(parentposition,"beforebegin")
+            const newCard = functions.positionCard(parentposition, "beforebegin")
             break;
         }
         case "addAft": {
             //console.log("addBef Case :", event.target.parentElement.);
 
             let parentposition = elClicked.parentElement;
-            const newCard  =  functions.positionCard(parentposition,"afterend");
+            const newCard = functions.positionCard(parentposition, "afterend");
             break;
-        
+
         }
 
         case "del": {
@@ -71,7 +61,7 @@ idLeftPanel.addEventListener("click", (event) => {
             let grandparent = parentposition.parentElement;
             const newCard = functions.delCard(parentposition, grandparent);
             //console.log("in del newCard",newCard);
-          break;
+            break;
         }
 
         default: {
