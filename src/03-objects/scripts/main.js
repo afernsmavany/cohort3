@@ -1,17 +1,41 @@
 import { Account, AccountController } from './account.js';
 import domFuncs from './domFuncs.js';
 
-const accountController = new AccountController;
+const accountManager = new AccountController;
 
 idAddBalance.addEventListener("click", () => {
-    console.log("Hello");
     let accountName = (input1.value);
     let balance = Number(input2.value);
-    accountController.createAccount(accountName, balance);
+    accountManager.createAccount(accountName, balance);
     domFuncs.createAccountCard(accountName, balance);
+    console.log(accountManager.accountList);
 
-    // const newAccount = domFuncs.addCard(idLeftPanel);
-});
+    idDeposit.addEventListener("click", () => {
+        // let accountName = (input1.value);
+        // let balance = Number(input2.value);
+        accountManager.deposit(amount);
+        // domFuncs.createAccountCard(accountName, balance);
+        console.log(accountManager.accountList);
+
+
+        // idWithdrawal.addEventListener("click", () => {
+        //     let accountName = (input1.value);
+        //     let balance = Number(input2.value);
+        //     accountManager.createAccount(accountName, balance);
+        //     domFuncs.createAccountCard(accountName, balance);
+        //     console.log(accountManager.accountList);
+
+        //     idDelAcct.addEventListener("click", () => {
+        //         let accountName = (input1.value);
+        //         let balance = Number(input2.value);
+        //         accountManager.createAccount(accountName, balance);
+        //         domFuncs.createAccountCard(accountName, balance);
+        //         console.log(accountManager.accountList);
+
+
+
+            });
+
 
 
 
