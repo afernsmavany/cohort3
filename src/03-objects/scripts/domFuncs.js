@@ -5,7 +5,7 @@ const domFuncs = {
     let newAcct = document.createElement("div");
     newAcct.id = accountName;
     newAcct.className = "card";
-    newAcct.textContent = `${accountName}`;
+    // newAcct.textContent = `${accountName}`;
     idLeftPanel.appendChild(newAcct);
 
     let newCardHeader = document.createElement("h2");
@@ -14,31 +14,30 @@ const domFuncs = {
     newAcct.appendChild(newCardHeader);
 
     let newAcctInput = document.createElement("input");
-    // let newInputId = accountName + 'input';
     newAcctInput.setAttribute('class', "inputField2");
     newAcctInput.setAttribute("type", "text");
     newAcctInput.placeholder = "Please enter amount..";
     newAcct.appendChild(newAcctInput);
 
     let buttonDeposit = document.createElement("button");
-    // let newDepositId = accountName + 'deposit';
     buttonDeposit.setAttribute('class', "depositButton");
     buttonDeposit.textContent = "Deposit";
     newAcct.appendChild(buttonDeposit);
 
-
     let buttonWithdrawal = document.createElement("button");
-
+    buttonWithdrawal.setAttribute('class', "withdrawalButton");
     buttonWithdrawal.textContent = "Withdrawal";
     newAcct.appendChild(buttonWithdrawal);
 
-
     let buttonDelete = document.createElement("button");
-
+    buttonDelete.setAttribute('class', "deleteButton");
     buttonDelete.textContent = "Delete Account";
     newAcct.appendChild(buttonDelete);
+  },
 
-  }
+  deleteAccountCard: (currentAccount) => {
+    idLeftPanel.removeChild(currentAccount);
+  },
 };
 
 export default domFuncs;
