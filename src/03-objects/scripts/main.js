@@ -2,7 +2,6 @@ import { Account, AccountController } from './account.js';
 import domFuncs from './domFuncs.js';
 
 const accountManager = new AccountController;
-// const userInput2 = document.getElementsByClassName("inputField2");
 const account = new Account;
 
 idAddBalance.addEventListener("click", () => {
@@ -15,17 +14,19 @@ idAddBalance.addEventListener("click", () => {
 
 idLeftPanel.addEventListener("click", (e) => {
     if (e.target.className === "depositButton") {
-        let currentCard = e.toElement.parentElement;
-        let cardInputVal = Number(currentCard.children[1].value);
-        console.log(cardInputVal);
-        console.log(accountManager[0]);
-    //    accountManager[0].deposit(cardInputVal);
-        console.log("Hello Deposit");
-        console.log(accountManager.accountList);
+        let currentAccount = e.target.parentElement;
+        let amount = Number(currentAccount.children[1].value);
+        if (amount > 0) {
+            let currentAccountType = currentAccount.children[0].textContent;
+            console.log(currentAccountType);
+            let currentAccountIndex = accountManager.accountList.findIndex
+                ((account) => account.name === currentAccountType);
+            console.log(currentAccountIndex);
+            accountManager.accountList[currentAccountIndex].deposit(amount);
+            currentAccount.children[1].value = "";
+        };
     };
-
 });
-
 
 
     // idWithdrawal.addEventListener("click", () => {

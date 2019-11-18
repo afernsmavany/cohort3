@@ -2,17 +2,19 @@
 const domFuncs = {
 
   createAccountCard: (accountName, balance) => {
-    // functions.counter++;
-    console.log("from createAccountCard: Hello World");
     let newAcct = document.createElement("div");
     newAcct.id = accountName;
     newAcct.className = "card";
-    newAcct.textContent = accountName;
+    newAcct.textContent = `${accountName}`;
+    idLeftPanel.appendChild(newAcct);
 
+    let newCardHeader = document.createElement("h2");
+    newCardHeader.className = "cardHeader";
+    newCardHeader.textContent = `${accountName}`;
+    newAcct.appendChild(newCardHeader);
 
     let newAcctInput = document.createElement("input");
     // let newInputId = accountName + 'input';
-    // newAcctInput.setAttribute('id', newInputId);
     newAcctInput.setAttribute('class', "inputField2");
     newAcctInput.setAttribute("type", "text");
     newAcctInput.placeholder = "Please enter amount..";
@@ -21,7 +23,6 @@ const domFuncs = {
     let buttonDeposit = document.createElement("button");
     // let newDepositId = accountName + 'deposit';
     buttonDeposit.setAttribute('class', "depositButton");
-    // buttonDeposit.setAttribute('id', newDepositId);
     buttonDeposit.textContent = "Deposit";
     newAcct.appendChild(buttonDeposit);
 
@@ -36,9 +37,6 @@ const domFuncs = {
 
     buttonDelete.textContent = "Delete Account";
     newAcct.appendChild(buttonDelete);
-
-    idLeftPanel.appendChild(newAcct);
-   
 
   }
 };
