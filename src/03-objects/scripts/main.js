@@ -18,8 +18,12 @@ idLeftPanel.addEventListener("click", (e) => {
             let currentAccountType = currentAccount.children[0].textContent;
             let currentAccountIndex = accountManager.accountList.findIndex
                 ((account) => account.accountName === currentAccountType);
+            // let indexSelector = currentAccount.getElementsByClassName("outputBoxClass")[0];
+            // accountManager.accountList[currentAccountIndex].deposit(indexSelector.value);
             accountManager.accountList[currentAccountIndex].deposit(amount);
             currentAccount.children[1].value = "";
+            currentAccount.children[5].textContent = accountManager.accountList[currentAccountIndex]
+                .showBalance();
         };
     };
 
@@ -32,6 +36,8 @@ idLeftPanel.addEventListener("click", (e) => {
                 ((account) => account.accountName === currentAccountType);
             accountManager.accountList[currentAccountIndex].withdrawal(amount);
             currentAccount.children[1].value = "";
+            currentAccount.children[5].textContent = accountManager.accountList[currentAccountIndex]
+                .showBalance();
         };
     };
 

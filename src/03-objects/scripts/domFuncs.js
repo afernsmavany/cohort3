@@ -5,7 +5,6 @@ const domFuncs = {
     let newAcct = document.createElement("div");
     newAcct.id = accountName;
     newAcct.className = "card";
-    // newAcct.textContent = `${accountName}`;
     idLeftPanel.appendChild(newAcct);
 
     let newCardHeader = document.createElement("h2");
@@ -33,13 +32,17 @@ const domFuncs = {
     buttonDelete.setAttribute('class', "deleteButton");
     buttonDelete.textContent = "Delete Account";
     newAcct.appendChild(buttonDelete);
+
+    let outputArea = document.createElement("output");
+    outputArea.setAttribute('class', "outputBoxClass"); 
+    outputArea.setAttribute('id', "outputBoxId"); 
+    newAcct.appendChild(outputArea);
   },
 
   deleteAccountCard: (currentAccount) => {
     idLeftPanel.removeChild(currentAccount);
   },
 };
-
 export default domFuncs;
 
 
