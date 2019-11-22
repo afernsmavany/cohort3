@@ -6,7 +6,7 @@ class Account {
     this.balance = balance;
   }
 
-  deposit(amount) {
+  deposit (amount) {
     this.balance += amount;
   }
 
