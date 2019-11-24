@@ -1,7 +1,34 @@
 
-// 11th Daily:- Callback Exercise (Part 1) - November 8, 2019
+// 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)
+
+// Based on callback exercise, part 1, now write a function using the generic callback 
+// function which returns an object of the total number of people, total age, and the average 
+// age of people from BC and Alberta only.
 
 const functions = {
+
+  filterProvinces: (arr, callBack) => {
+    let filtered = arr.filter(element => element.province === "BC" || element.province === "AB");
+    return callBack(filtered);
+  },
+
+  totals: (arr) => {
+    let totalPeople = arr.length;
+    let totalArr = [];
+    for (let i in arr) {
+      totalArr.push(arr[i].age);
+    }
+    let totalAge = totalArr.reduce((acc, curr) => acc + curr);
+    let average = totalAge / totalPeople;
+    let averageAge = Math.round(average);
+    let totalsObject = {};
+    totalsObject.totalPeople = totalPeople;
+    totalsObject.averageAge = averageAge;
+    totalsObject.totalAge = totalAge;
+    return totalsObject;
+  },
+
+  // 11th Daily:- Callback Exercise (Part 1) - November 8, 2019
 
   filterProvinces: (arr, callBack) => {
     let filtered = arr.filter(element => element.province === "BC" || element.province === "AB");

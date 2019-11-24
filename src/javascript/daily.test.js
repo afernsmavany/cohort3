@@ -1,6 +1,17 @@
 
 import functions from './daily'
 
+// 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)
+
+test('To return total people, total age and average age', () => {
+    const totalAll = functions.filterProvinces(people, functions.totals);
+    expect(totalAll).toEqual({
+        "averageAge": 38,
+        "totalAge": 838,
+        "totalPeople": 22,
+    });
+});
+
 // 11th Daily:- Callback Exercise (Part 1) - November 8, 2019
 
 const people = [
