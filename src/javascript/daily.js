@@ -9,22 +9,22 @@
 // By origin reverse alphabetic, using arrow function
 
 let myArray = [
-  {num: 5,str: "apples", origin:"BC"},
-  {num: 7,str: "oranges", origin:"Florida"},
-  {num: 2,str: "lemons", origin:"Mexico"},
-  {num: 8,str: "bananas", origin:"Ecuador"},
-  {num: 6,str: "avocados", origin:"Mexico"},
-  {num: 4,str: "pineapple", origin:"Brazil"},
-  {num: 3,str: "blueberries", origin:"Chile"},
-  {num: 9,str: "pears", origin:"Oregon"},
-  {num: 1,str: "cantaloupe", origin:"California"}
+  { num: 5, str: "apples", origin: "BC" },
+  { num: 7, str: "oranges", origin: "Florida" },
+  { num: 2, str: "lemons", origin: "Mexico" },
+  { num: 8, str: "bananas", origin: "Ecuador" },
+  { num: 6, str: "avocados", origin: "Mexico" },
+  { num: 4, str: "pineapple", origin: "Brazil" },
+  { num: 3, str: "blueberries", origin: "Chile" },
+  { num: 9, str: "pears", origin: "Oregon" },
+  { num: 1, str: "cantaloupe", origin: "California" }
 ];
 
 const functions = {
 
   numberSort: myArray.sort((a, b) => {
     return a.num - b.num;
-    console.log("myArray = ", myArray);
+    // console.log("myArray = ", myArray);
   }),
 
   fruitSort: myArray.sort(function alphabetic(a, b) {
@@ -33,11 +33,11 @@ const functions = {
     console.log("myArray = ", myArray);
   }),
 
-  // originSort: myArray.sort(function alphabetic(a, b) {
-  //   if (a.str < b.str) return 1;
-  //   if (a.str > b.str) return -1;
-  //   console.log("myArray = ", myArray);
-  // }),
+  originSort: myArray.sort((a, b) => {
+    if (a.origin < b.origin) return 1;
+    if (a.origin > b.origin) return -1;
+    console.log("myArray = ", myArray);
+  }),
 
   // 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)
 
