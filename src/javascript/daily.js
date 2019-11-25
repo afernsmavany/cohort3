@@ -1,11 +1,49 @@
 
-// 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)
+// 13th Daily:- November 22, 2019 - Three ways of functions
 
-// Based on callback exercise, part 1, now write a function using the generic callback 
-// function which returns an object of the total number of people, total age, and the average 
-// age of people from BC and Alberta only.
+// Write 3 functions:  1) Anonymous function 2) Named function, 3) Arrow function.
+// Write these functions to complete the following exercise.  
+// Sort the array:
+// By number ascending, using anonymous function
+// By fruit alphabetic, using named function
+// By origin reverse alphabetic, using arrow function
+
+let myArray = [
+  {num: 5,str: "apples", origin:"BC"},
+  {num: 7,str: "oranges", origin:"Florida"},
+  {num: 2,str: "lemons", origin:"Mexico"},
+  {num: 8,str: "bananas", origin:"Ecuador"},
+  {num: 6,str: "avocados", origin:"Mexico"},
+  {num: 4,str: "pineapple", origin:"Brazil"},
+  {num: 3,str: "blueberries", origin:"Chile"},
+  {num: 9,str: "pears", origin:"Oregon"},
+  {num: 1,str: "cantaloupe", origin:"California"}
+];
 
 const functions = {
+
+  numberSort: myArray.sort((a, b) => {
+    return a.num - b.num;
+    console.log("myArray = ", myArray);
+  }),
+
+  fruitSort: myArray.sort(function alphabetic(a, b) {
+    if (a.str > b.str) return 1;
+    if (a.str < b.str) return -1;
+    console.log("myArray = ", myArray);
+  }),
+
+  // originSort: myArray.sort(function alphabetic(a, b) {
+  //   if (a.str < b.str) return 1;
+  //   if (a.str > b.str) return -1;
+  //   console.log("myArray = ", myArray);
+  // }),
+
+  // 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)
+
+  // Based on callback exercise, part 1, now write a function using the generic callback 
+  // function which returns an object of the total number of people, total age, and the average 
+  // age of people from BC and Alberta only.
 
   filterProvinces: (arr, callBack) => {
     let filtered = arr.filter(element => element.province === "BC" || element.province === "AB");
