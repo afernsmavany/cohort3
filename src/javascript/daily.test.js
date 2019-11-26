@@ -33,7 +33,7 @@ test('To sort the array by number', () => {
 });
 
 test('To sort the array by fruit', () => {
-    expect(functions.fruitSort).toEqual([{ "num": 5, "origin": "BC", "str": "apples" }, { "num": 6, "origin": "Mexico", "str": "avocados" },
+    expect(functions.fruitSort(myArray)).toEqual([{ "num": 5, "origin": "BC", "str": "apples" }, { "num": 6, "origin": "Mexico", "str": "avocados" },
     { "num": 8, "origin": "Ecuador", "str": "bananas" }, { "num": 3, "origin": "Chile", "str": "blueberries" }, { "num": 1, "origin": "California", "str": "cantaloupe" },
     { "num": 2, "origin": "Mexico", "str": "lemons" }, { "num": 7, "origin": "Florida", "str": "oranges" }, { "num": 9, "origin": "Oregon", "str": "pears" },
     { "num": 4, "origin": "Brazil", "str": "pineapple" }]
@@ -41,7 +41,7 @@ test('To sort the array by fruit', () => {
 });
 
 test('To sort the array by origin', () => {
-    expect(functions.originSort).toEqual(
+    expect(functions.originSort(myArray)).toEqual(
         [{ "num": 9, "origin": "Oregon", "str": "pears" }, { "num": 2, "origin": "Mexico", "str": "lemons" },
         { "num": 6, "origin": "Mexico", "str": "avocados" }, { "num": 7, "origin": "Florida", "str": "oranges" },
         { "num": 8, "origin": "Ecuador", "str": "bananas" }, { "num": 3, "origin": "Chile", "str": "blueberries" },

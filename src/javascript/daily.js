@@ -1,5 +1,4 @@
 
-// 14th Daily:- Destructuring-assignment - November 26, 2019
 
 let myArray = [
   { num: 5, str: "apples", origin: "BC" },
@@ -12,6 +11,8 @@ let myArray = [
   { num: 9, str: "pears", origin: "Oregon" },
   { num: 1, str: "cantaloupe", origin: "California" }
 ];
+
+// 14th Daily:- Destructuring-assignment - November 26, 2019
 
 const functions = {
 
@@ -50,17 +51,17 @@ const functions = {
     myArray.sort(function alphabetic(a, b) {
     if (a.str > b.str) return 1;
     if (a.str < b.str) return -1;
-    console.log("myArray = ", myArray);
   });
+  console.log("myArray = ", myArray);
   return myArray;
   },
 
   originSort: (myArray) => {
     myArray.sort((a, b) => {
     if (a.origin < b.origin) return 1;
-    if (a.origin > b.origin) return -1;
-    console.log("myArray = ", myArray);
+    if (a.origin > b.origin) return -1; 
   });
+  console.log("myArray = ", myArray);
   return myArray;
   },
 
