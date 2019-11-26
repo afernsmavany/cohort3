@@ -1,28 +1,53 @@
 
 import functions from './daily'
 
-// 13th Daily:- November 22, 2019 - Three ways of functions
+// 14th Daily:- Destructuring-assignment - November 26, 2019
 
-test('To sort the array by number, fruit & origin', () => {
-    expect(functions.numberSort).toEqual([{ "num": 1, "origin": "California", "str": "cantaloupe" }, { "num": 2, "origin": "Mexico", "str": "lemons" },
+test('To test destructuring array', () => {
+    expect(functions.destructArr()).toEqual("Asif Mavany EvolveU Calgary");
+});
+
+test('To test destructuring object', () => {
+    expect(functions.destructObj()).toEqual("Checking Account 100000");
+});
+
+// 13th Daily:- November 22, 2019 - Three ways of functions
+let myArray = [
+    { num: 5, str: "apples", origin: "BC" },
+    { num: 7, str: "oranges", origin: "Florida" },
+    { num: 2, str: "lemons", origin: "Mexico" },
+    { num: 8, str: "bananas", origin: "Ecuador" },
+    { num: 6, str: "avocados", origin: "Mexico" },
+    { num: 4, str: "pineapple", origin: "Brazil" },
+    { num: 3, str: "blueberries", origin: "Chile" },
+    { num: 9, str: "pears", origin: "Oregon" },
+    { num: 1, str: "cantaloupe", origin: "California" }
+  ];
+
+test('To sort the array by number', () => {
+    expect(functions.numberSort(myArray)).toEqual([{ "num": 1, "origin": "California", "str": "cantaloupe" }, { "num": 2, "origin": "Mexico", "str": "lemons" },
     { "num": 3, "origin": "Chile", "str": "blueberries" }, { "num": 4, "origin": "Brazil", "str": "pineapple" }, { "num": 5, "origin": "BC", "str": "apples" },
     { "num": 6, "origin": "Mexico", "str": "avocados" }, { "num": 7, "origin": "Florida", "str": "oranges" },
     { "num": 8, "origin": "Ecuador", "str": "bananas" }, { "num": 9, "origin": "Oregon", "str": "pears" }]
-    );
+    )
+});
 
+test('To sort the array by fruit', () => {
     expect(functions.fruitSort).toEqual([{ "num": 5, "origin": "BC", "str": "apples" }, { "num": 6, "origin": "Mexico", "str": "avocados" },
     { "num": 8, "origin": "Ecuador", "str": "bananas" }, { "num": 3, "origin": "Chile", "str": "blueberries" }, { "num": 1, "origin": "California", "str": "cantaloupe" },
     { "num": 2, "origin": "Mexico", "str": "lemons" }, { "num": 7, "origin": "Florida", "str": "oranges" }, { "num": 9, "origin": "Oregon", "str": "pears" },
     { "num": 4, "origin": "Brazil", "str": "pineapple" }]
-    );
+    )
+});
 
+test('To sort the array by origin', () => {
     expect(functions.originSort).toEqual(
         [{ "num": 9, "origin": "Oregon", "str": "pears" }, { "num": 2, "origin": "Mexico", "str": "lemons" },
         { "num": 6, "origin": "Mexico", "str": "avocados" }, { "num": 7, "origin": "Florida", "str": "oranges" },
         { "num": 8, "origin": "Ecuador", "str": "bananas" }, { "num": 3, "origin": "Chile", "str": "blueberries" },
         { "num": 1, "origin": "California", "str": "cantaloupe" }, { "num": 4, "origin": "Brazil", "str": "pineapple" },
         { "num": 5, "origin": "BC", "str": "apples" }]
-    );
+    )
 });
 
 // 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)

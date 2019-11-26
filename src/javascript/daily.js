@@ -1,12 +1,5 @@
 
-// 13th Daily:- November 22, 2019 - Three ways of functions
-
-// Write 3 functions:  1) Anonymous function 2) Named function, 3) Arrow function.
-// Write these functions to complete the following exercise.  
-// Sort the array:
-// By number ascending, using anonymous function
-// By fruit alphabetic, using named function
-// By origin reverse alphabetic, using arrow function
+// 14th Daily:- Destructuring-assignment - November 26, 2019
 
 let myArray = [
   { num: 5, str: "apples", origin: "BC" },
@@ -22,22 +15,54 @@ let myArray = [
 
 const functions = {
 
-  numberSort: myArray.sort((a, b) => {
-    return a.num - b.num;
-    // console.log("myArray = ", myArray);
-  }),
+  destructArr: () => {
+    let [field1, field2, ...rest] = ["Asif", "Mavany", "EvolveU", "Calgary"];
+    return field1 + " " + field2 + " " + rest[0] + " " + rest[1];
+  },
 
-  fruitSort: myArray.sort(function alphabetic(a, b) {
+  destructObj: (inp) => {
+    let checkingAccount = {
+      accountName: "Checking Account",
+      balance: 100000,
+    };
+
+    let { balance: b, accountName: a } = checkingAccount;
+    return a + " " + b;
+  },
+
+  // 13th Daily:- November 22, 2019 - Three ways of functions
+
+  // Write 3 functions:  1) Anonymous function 2) Named function, 3) Arrow function.
+  // Write these functions to complete the following exercise.  
+  // Sort the array:
+  // By number ascending, using anonymous function
+  // By fruit alphabetic, using named function
+  // By origin reverse alphabetic, using arrow function
+
+  numberSort: (myArray) => {
+    myArray.sort((a, b) => {
+      return a.num - b.num;
+    });
+    return myArray;
+  },
+
+  fruitSort: (myArray) => {
+    myArray.sort(function alphabetic(a, b) {
     if (a.str > b.str) return 1;
     if (a.str < b.str) return -1;
     console.log("myArray = ", myArray);
-  }),
+  });
+  return myArray;
+  },
 
-  originSort: myArray.sort((a, b) => {
+  originSort: (myArray) => {
+    myArray.sort((a, b) => {
     if (a.origin < b.origin) return 1;
     if (a.origin > b.origin) return -1;
     console.log("myArray = ", myArray);
-  }),
+  });
+  return myArray;
+  },
 
   // 12th Daily:- November 21, 2019 - Callback Exercise (Part 2)
 
