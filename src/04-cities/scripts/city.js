@@ -43,9 +43,12 @@ class Community {
   }
 
   deleteCity(key) {
-    this.cities = this.cities.filter(city => {
-      city.key !== key;
-    });
+    // this.cities = this.cities.filter(city =>
+    //   city.key !== key);
+    const citiesArr = this.cities.filter(city =>
+      city.key !== key);
+      this.cities = citiesArr;
+      // console.log(this.cities);
   }
 
   whichSphere(latitude) {
@@ -58,7 +61,7 @@ class Community {
   }
 
   getMostSouthern() {
-    return this.cities.sort((a, b) => b.latitude - a.latitude)[0];
+    return this.cities.sort((a, b) => a.latitude - b.latitude)[0];
   }
 
   getPopulation() {
