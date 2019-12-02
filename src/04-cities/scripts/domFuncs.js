@@ -1,9 +1,9 @@
 
 const domFuncs = {
 
-  createCityCard: (name, latitude, longitude, population) => {
+  createCityCard: (key, name, latitude, longitude, population) => {
     let newCity = document.createElement("div");
-    newCity.id = cityName;
+    newCity.id = name;
     newCity.className = "card";
     idLeftPanel.appendChild(newCity);
 
@@ -15,22 +15,22 @@ const domFuncs = {
     let newCityInput = document.createElement("input");
     newCityInput.setAttribute('class', "inputField2");
     newCityInput.setAttribute("type", "text");
-    newCityInput.placeholder = "Please enter amount..";
+    newCityInput.placeholder = "Please enter population..";
     newCity.appendChild(newCityInput);
 
-    let buttonDeposit = document.createElement("button");
-    buttonDeposit.setAttribute('class', "depositButton");
-    buttonDeposit.textContent = "Deposit";
-    newCity.appendChild(buttonDeposit);
+    let buttonMovedIn = document.createElement("button");
+    buttonMovedIn.setAttribute('class', "movedInButton");
+    buttonMovedIn.textContent = "Moved In";
+    newCity.appendChild(buttonMovedIn);
 
-    let buttonWithdrawal = document.createElement("button");
-    buttonWithdrawal.setAttribute('class', "withdrawalButton");
-    buttonWithdrawal.textContent = "Withdrawal";
-    newCity.appendChild(buttonWithdrawal);
+    let buttonMovedOut = document.createElement("button");
+    buttonMovedOut.setAttribute('class', "movedOutButton");
+    buttonMovedOut.textContent = "Moved Out";
+    newCity.appendChild(buttonMovedOut);
 
     let buttonDelete = document.createElement("button");
     buttonDelete.setAttribute('class', "deleteButton");
-    buttonDelete.textContent = "Delete Account";
+    buttonDelete.textContent = "Delete City";
     newCity.appendChild(buttonDelete);
 
     let outputArea = document.createElement("output");
