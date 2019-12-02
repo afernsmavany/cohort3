@@ -39,8 +39,10 @@ const domFuncs = {
     newCity.appendChild(outputArea);
   },
 
-  deleteAccountCard: (currentAccount) => {
-    idLeftPanel.removeChild(currentAccount);
+  deleteCityCard: (currentCityKey) => {
+    console.log("return");
+    // idLeftPanel.removeChild(currentCityKey);
+    currentCityKey.remove();
   },
 };
 export default domFuncs;

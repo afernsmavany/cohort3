@@ -9,8 +9,9 @@ class City {
   }
 
   show() {
-    return `${this.Name} is located at lat ${this.Latitude}
-    long ${this.Longitude} and it has a population of ${this.Population}`;
+    return `${this.name} is located at lat ${this.latitude}
+    long ${this.longitude} and it has a population of ${this.population}`;
+  
   }
 
   movedIn(number) {
@@ -45,6 +46,7 @@ class Community {
   deleteCity(key) {
     // this.cities = this.cities.filter(city =>
     //   city.key !== key);
+    console.log("res");
     const citiesArr = this.cities.filter(city =>
       city.key !== key);
       this.cities = citiesArr;
