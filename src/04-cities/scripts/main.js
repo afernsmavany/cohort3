@@ -12,6 +12,11 @@ idAddCity.addEventListener("click", () => {
     cityManager.createCity(key, name, latitude, longitude, population);
     domFuncs.createCityCard(key, name, latitude, longitude, population);
     key += 1;
+    let cityNorthern = cityManager.getMostNorthern();
+    output2.textContent = cityNorthern.name;
+    let citySouthern = cityManager.getMostSouthern();
+    output4.textContent = citySouthern.name;
+    output6.textContent = cityManager.getPopulation();
 });
 
 idLeftPanel.addEventListener("click", (e) => {
@@ -31,6 +36,7 @@ idLeftPanel.addEventListener("click", (e) => {
             // console.log(currentCityIndex);
 
             cityManager.cities[currentCityKey].movedIn(number);
+            output6.textContent = cityManager.getPopulation();
             currentCity.children[1].value = "";
             // console.log(cityManager.cities[currentCityKey]);
             currentCity.children[5].textContent = cityManager.cities
@@ -47,6 +53,7 @@ idLeftPanel.addEventListener("click", (e) => {
                 ((city) => city.name === currentCityType);
             let currentCityKey = cityManager.cities[currentCityIndex].key;
             cityManager.cities[currentCityKey].movedOut(number);
+            output6.textContent = cityManager.getPopulation();
             currentCity.children[1].value = "";
             currentCity.children[5].textContent = cityManager.cities
             [currentCityKey].show(currentCity);
@@ -61,9 +68,9 @@ idLeftPanel.addEventListener("click", (e) => {
         let currentCityKey = cityManager.cities[currentCityIndex].key;
         console.log(currentCityKey);
         // cityManager.cities[currentCityKey].deleteCity(0);
-
         cityManager.deleteCity(currentCityKey);
-        console.log(currentCityKey.parentElement);
+        console.log(currentCity.parentElement);
         domFuncs.deleteCityCard(currentCity);
+        console.log(cityManager.cities);
     };
 });

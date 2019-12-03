@@ -40,8 +40,6 @@ const domFuncs = {
   },
 
   deleteCityCard: (currentCityKey) => {
-    console.log("return");
-    // idLeftPanel.removeChild(currentCityKey);
     currentCityKey.remove();
   },
 };
