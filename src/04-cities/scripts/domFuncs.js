@@ -41,7 +41,7 @@ const domFuncs = {
 
   deleteCityCard: (currentCityKey) => {
     currentCityKey.remove();
-  },
+  }
 };
 export default domFuncs;
 

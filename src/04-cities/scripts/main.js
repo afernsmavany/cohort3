@@ -9,7 +9,13 @@ idAddCity.addEventListener("click", () => {
     let latitude = Number(input2.value);
     let longitude = Number(input3.value);
     let population = Number(input4.value);
-    cityManager.createCity(key, name, latitude, longitude, population);
+
+    city = cityManager.createCity(key, name, latitude, longitude, population);
+    //error = apiFunctions.addData(city)
+    //if (error){
+        //displayMessage = error
+        //cityManager.deleteCity
+    } else {
     domFuncs.createCityCard(key, name, latitude, longitude, population);
     key += 1;
     let cityNorthern = cityManager.getMostNorthern();
@@ -17,6 +23,7 @@ idAddCity.addEventListener("click", () => {
     let citySouthern = cityManager.getMostSouthern();
     output4.textContent = citySouthern.name;
     output6.textContent = cityManager.getPopulation();
+    }
 });
 
 idLeftPanel.addEventListener("click", (e) => {
