@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import MyComp from './components/MyComponent';
 import logo from './logo.svg';
 import './App.css';
-import { render } from '@testing-library/react';
-import MyComponent from './components/MyComponent';
 
-
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.counter = 21;
@@ -13,43 +11,44 @@ class App extends Component {
       myState: "TBD"
     };
   }
-}
 
-onPushMe = () => {
-  console.log("You pushed me");
-  this.counter += 1;
-  console.log(counter);
-  this.setState({
-    myState: "now:" + this.counter
-  });
-}
+  onPushMe = () => {
+    console.log("You pushed me");
+    this.counter += 1;
+    console.log(this.counter);
+    this.setState({
+      myState: "now:" + this.counter
+    });
+  }
 
-render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Someone is in control of this application; is it Facebook?
-          {this.counter}
-          {this.state.myState}</h1>
-        <button onClick={this.onPushMe}>
-          Push Me
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1>I am in control of this application and my name is Asif {this.counter} {this.state.myState}</h1>
+          <button onClick={this.onPushMe}>
+            Push Me
           </button>
-        <MyComponent whatToSay= “What Ever” {this.onPushMe}/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+          <MyComp whatToSay={"What Ever"}
+            onPushMeOutput={this.onPushMe} />
 
+
+
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+        </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+        </a>
+        </header>
+      </div>
+    );
+  }
+}
 export default App;
