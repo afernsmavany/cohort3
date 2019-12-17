@@ -11,6 +11,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+  .icon {
+    animation: App-logo-spin infinite 8s linear;
+  }
 }
 
 .App-header {
@@ -26,6 +29,14 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.icon {
+  height: 100px;
+}
+
+.icon:hover {
+  animation: spin 3s linear;
 }
 
 @keyframes App-logo-spin {
