@@ -34,7 +34,8 @@ class App extends Component {
 
   renderIcons = () => {
     return this.icons.map((icon) => {
-      return <Icon key={icon} name={icon} image={icon} style={this.state.selected === icon ? this.style : null}
+      return <Icon key={icon} name={icon} image={icon} 
+      style={this.state.selected === icon ? this.style : null}
         onClick={this.onSelect} />
     })
   }
