@@ -1,77 +1,92 @@
-import React, { Component } from 'react';
-import './accounts.css';
-import { AccountController } from './accountPSC.js';
+import React from "react";
+// import AccountCard from "./AccountCard";
+import AccountController from "./accountPSC"
+import './accountApp.css';
+import AccountForm from './accountForm';
+import AccountCard from './accountCard';
 
-class Accounts extends Component {
-  constructor() {
-    super()
-    this.state = {
-      accountName: "",
-      accountBal: null,
-      AController: new AccountController()
+class Accounts extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            totalBalance: "",
+            mostValuable: "",
+            leastValuable: "",
+            message: ""
+        }
+        this.accountController = new AccountController();
     }
-  }
-  // oldState =  () => {
-  //   this.setState({accountName : ""});
-  //   this.setState({accountBal : ""})
-  // }
+    addAccount = (inputs) => {
+        const { nameInput, startingBalanceInput } = inputs;
+        let errorMessage;
+        if (!nameInput) {
+            errorMessage = "Please enter an account name.";
+        } else {
+            errorMessage = this.accountController.createAccount(nameInput, startingBalanceInput)
+        }
+        this.setState({
+            message: errorMessage
+        });
+        this.calcReport();
+    }
 
-  accountName = (eValue) => {
-    this.setState({ accountName: eValue })
-  }
+    removeAccount = (accontName) => {
+        this.accountController.removeAccount(accontName);
+        this.calcReport();
+    }
 
-  accountBal = (eValue) => {
-    this.setState({ accountBal: eValue })
-  }
+    calcReport = () => {
+        this.setState({
+            totalBalance: ""
+        });
+        if (this.accountController.accountList.length > 1) {
+            document.getElementById("idReport").classList.remove("hidden");
+            const totalBalanceUpdate = this.accountController.totalAccounts();
+            const mostValuableUpdate = this.accountController.highestAccount().accountType;
+            const leastValuableUpdate = this.accountController.lowestAccount().accountType;
+            this.setState({
+                totalBalance: totalBalanceUpdate,
+                mostValuable: mostValuableUpdate,
+                leastValuable: leastValuableUpdate
+            });
+        } else {
+            document.getElementById("idReport").classList.add("hidden");
+        }
+    }
 
-  // handleClick = (() =>{this.setState(AController: AController.createAccount(this.state.accountName, this.state.accountBal));
-  handleClick = (() => {
-    const arrayAccounts = this.state.AController;
-    arrayAccounts.createAccount(this.state.accountName, this.state.accountBal);
-    // this.setState(this.state.AController.createAccount(this.state.accountName, this.state.accountBal));
-    this.setState({
-      AController: arrayAccounts,
-    })
-  }
-  )
+    renderCards = () => {
+        return this.accountController.accountList.map(account => {
+            return <AccountCard
+                key={account.accountType}
+                account={account}
+                calcReport={this.calcReport}
+                removeAccount={this.removeAccount} />
+        });
+    }
+    render() {
+        return (
+            <div id="idGridContainer">
+                <div id="idSummaryPanel">
+                    <h2 className="subheading">Account Summary</h2>
 
-  // addAccountCard = (() => {
-  //   return (
-  //     <div className="card">
-  //       <h2 className="cardHeader">Current {this.state.accountName} {this.state.accountBal}
-  //       </h2> <input className="inputField2" type="text" placeholder="Please enter amount.." />
-  //       <button className="depositButton">Deposit</button>
-  //       <button className="withdrawalButton">Withdrawal</button>
-  //       <button className="deleteButton">Delete Account</button> <output class="outputBoxClass" id="outputBoxId"></output>
-  //     </div>)
-  // }
-  // )
+                    <AccountForm onSubmit={this.addAccount} message={this.state.message} />
 
-  render() {
+                    <div id="idReport" className="hidden">
+                        <h3>Report</h3>
+                        <span>Total Balance: </span><span id="idTotal">{this.state.totalBalance}</span><br />
+                        <span>Most Valuable: </span><span id="idMost">{this.state.mostValuable}</span><br />
+                        <span>Least Valuable: </span><span id="idLeast">{this.state.leastValuable}</span><br />
+                    </div>
+                </div>
 
-    return (
-      <div>
-        <div id="cards" />
-        <h2> My Accounts </h2>
-        <div id="idPanelContainer">
-          <div id="idLeftPanel" className="leftPanel">Account Manager
-            <input id="input1" type="text" placeholder="Add an Account Name" onBlur={(event) => this.accountName(event.target.value)} />
-            <input id="input2" type="text" placeholder="Enter initial balance" onBlur={(event) => this.accountBal(event.target.value)} />
-            <button className="addBalance" id="idAddBalance"
-              onClick={() => { this.handleClick() }}> Create New Account</button>
+                <div id="idCardPanel">
+                    <h2>Accounts</h2>
+                    {this.renderCards()}
 
-            <div className="card">
-              <h2 className="cardHeader">Current {this.state.accountName} {this.state.accountBal} ></h2>
-                <button className="withdrawalButton">Withdrawal</button>
-                <button className="deleteButton">Delete Account</button> <output class="outputBoxClass" id="outputBoxId"></output>
+                </div>
             </div>
-      </div>
-          </div>
-          </div>
-          
-        ); 
-      }
+        );
     }
-    
-    
-export default Accounts; 
+}
+
+export default Accounts;

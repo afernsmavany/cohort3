@@ -157,4 +157,4 @@ function calculateWinner(squares) {
   }
   return null;
 }
-export { Board, Game, Square };
+export default Game;
