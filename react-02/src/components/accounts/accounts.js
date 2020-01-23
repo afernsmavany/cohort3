@@ -1,92 +1,56 @@
-import React from "react";
-// import AccountCard from "./AccountCard";
-import AccountController from "./accountPSC"
-import './accountApp.css';
-import AccountForm from './accountForm';
-import AccountCard from './accountCard';
 
-class Accounts extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            totalBalance: "",
-            mostValuable: "",
-            leastValuable: "",
-            message: ""
-        }
-        this.accountController = new AccountController();
+import React, { Component } from 'react';
+import './accounts.css';
+import AccountController from accountPSC.js;
+import accountCard from accountCard.js;
+
+class Accounts extends Component {
+  constructor() {
+    super();
+    this.state = {
+    
     }
-    addAccount = (inputs) => {
-        const { nameInput, startingBalanceInput } = inputs;
-        let errorMessage;
-        if (!nameInput) {
-            errorMessage = "Please enter an account name.";
-        } else {
-            errorMessage = this.accountController.createAccount(nameInput, startingBalanceInput)
-        }
-        this.setState({
-            message: errorMessage
-        });
-        this.calcReport();
-    }
+    this.accountManager = new AccountController();
+  }
 
-    removeAccount = (accontName) => {
-        this.accountController.removeAccount(accontName);
-        this.calcReport();
-    }
+renderCards = () => {
+  return this.accountManager.accountList.map(accountEach => {
+   return <
+    key = {accountEach.name}     
+    account = {accountEach}     
+    calcReport = {accountEach.calcReport}     
+    removeAccount = {this.removeAccount} />
 
-    calcReport = () => {
-        this.setState({
-            totalBalance: ""
-        });
-        if (this.accountController.accountList.length > 1) {
-            document.getElementById("idReport").classList.remove("hidden");
-            const totalBalanceUpdate = this.accountController.totalAccounts();
-            const mostValuableUpdate = this.accountController.highestAccount().accountType;
-            const leastValuableUpdate = this.accountController.lowestAccount().accountType;
-            this.setState({
-                totalBalance: totalBalanceUpdate,
-                mostValuable: mostValuableUpdate,
-                leastValuable: leastValuableUpdate
-            });
-        } else {
-            document.getElementById("idReport").classList.add("hidden");
-        }
-    }
+  }
 
-    renderCards = () => {
-        return this.accountController.accountList.map(account => {
-            return <AccountCard
-                key={account.accountType}
-                account={account}
-                calcReport={this.calcReport}
-                removeAccount={this.removeAccount} />
-        });
-    }
-    render() {
-        return (
-            <div id="idGridContainer">
-                <div id="idSummaryPanel">
-                    <h2 className="subheading">Account Summary</h2>
 
-                    <AccountForm onSubmit={this.addAccount} message={this.state.message} />
+  )
 
-                    <div id="idReport" className="hidden">
-                        <h3>Report</h3>
-                        <span>Total Balance: </span><span id="idTotal">{this.state.totalBalance}</span><br />
-                        <span>Most Valuable: </span><span id="idMost">{this.state.mostValuable}</span><br />
-                        <span>Least Valuable: </span><span id="idLeast">{this.state.leastValuable}</span><br />
-                    </div>
-                </div>
-
-                <div id="idCardPanel">
-                    <h2>Accounts</h2>
-                    {this.renderCards()}
-
-                </div>
-            </div>
-        );
-    }
 }
 
-export default Accounts;
+render() {
+  return (
+
+    <section id="cards">
+    <h2> My Accounts </h2>
+    <div id="idPanelContainer">
+        <div id="idLeftPanel" class="leftPanel">Account Manager
+            <input id="input1" type="text" placeholder="Add an Account Name"/>
+            <input id="input2" type="text" placeholder="Enter initial balance"/>
+            <button class="addBalance" id="idAddBalance">Create New Account</button>
+        </div>
+
+        <div id="idRightPanel" class="rightPanel"> My Current Balances
+            <h3 id="display"></h3>
+      </div>
+      </div>
+   
+</section>
+    
+  );
+}
+}
+
+export default Accounts; 
+
+

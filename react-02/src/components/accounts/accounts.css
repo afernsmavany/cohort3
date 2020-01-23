@@ -1,5 +1,4 @@
 body {
-
   padding : 0px;
   margin: 0px;
   box-sizing: border-box;
@@ -31,8 +30,7 @@ li {
   margin: 0 auto;
 }
 
-button {
-  
+button { 
   border-radius: 10px;
   margin-bottom: 25px;
 }
@@ -107,5 +105,5 @@ section {
   margin : 5px;
   /* margin : 0 auto; */
   padding:10px;
-
 }
+

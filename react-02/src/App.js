@@ -9,7 +9,7 @@ import './App.css';
 import Icon from './components/Icon.js';
 import Accounts from './components/accounts/accounts.js';
 
-import { Board, Game, Square } from './components/tictactoe/Game.js';
+import Game from './components/tictactoe/Game.js';
 
 class App extends Component {
   constructor() {
@@ -57,7 +57,6 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
         </p>
-
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -73,3 +72,6 @@ class App extends Component {
 }
 
 export default App;
+
+
+
