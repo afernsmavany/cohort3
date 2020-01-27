@@ -1,20 +1,32 @@
-print(5 == 5)
-print(5 > 5)
-print(10 != 10)
+day_of_the_week= input("What day of the week is it today? ").lower()
 
-# Comparisons: ==, !=, >, <, >=, <=
+# print(day_of_the_week == "Monday")
 
-friends = ["Rolf", "Bob"]
-abroad = ["Rolf", "Bob"]
+# #2:
+# if day_of_the_week == "Monday":
+#     print("Have a great start to your week!")
 
-print(friends == abroad)
-print(friends is abroad)
-print(friends is friends)
+# if day_of_the_week != "Monday":
+#     print("Full speed ahead!")
+  
+# print("This always runs.")  
 
-#2:
-friends = ["Rolf", "Bob"]
-abroad = friends
+# #3:
 
-print(friends == abroad)
-print(friends is abroad)
+# if day_of_the_week == "Monday":
+#     print("Have a great start to your week!")
+# else:
+#     print("Full speed ahead!")
+  
+# print("This always runs.")  
 
+#4:
+
+if day_of_the_week == "monday":
+    print("Have a great start to your week!")
+elif day_of_the_week == "tuesday":
+    print("It's Tuesday!")
+else:
+    print("Full speed ahead!")
+
+print("This always runs.")  
