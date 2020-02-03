@@ -37,16 +37,16 @@ class Accounts extends Component {
   renderCards = () => {
     console.log(this.accountManager.accountList.map(accountEach => {
       return <AccountCard
-        key={accountEach.name}
+        key={accountEach.accountName}
         account={accountEach}
       // calcReport = {accountEach.calcReport}     
       // removeAccount = {this.removeAccount}
-      />}))
-
+      />
+    }))
 
     return this.accountManager.accountList.map(accountEach => {
       return <AccountCard
-        key={accountEach.name}
+        key={accountEach.accountName}
         account={accountEach}
       // calcReport = {accountEach.calcReport}     
       // removeAccount = {this.removeAccount}
@@ -57,7 +57,7 @@ class Accounts extends Component {
   render() {
     return (
 
-      <section id="cards">
+      <section >
         <h2> My Accounts </h2>
         <div id="idPanelContainer">
           <div id="idLeftPanel" className="leftPanel">Account Manager
@@ -77,13 +77,13 @@ class Accounts extends Component {
               onChange={this.handleInputChange} />
             <button className="addBalance" id="idAddBalance" onClick={this.handleCreateNewAccount}>Create New Account</button>
 
+            {/* <h2> Account List </h2> */}
             {this.renderCards()}
 
           </div>
 
-
           <div id="idRightPanel" className="rightPanel"> My Current Balances
-            <h3 id="display"></h3>
+            <h3 id="display">Display Status</h3>
           </div>
         </div>
 
