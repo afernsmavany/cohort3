@@ -4,15 +4,15 @@ import './accounts.css';
 
 class AccountCard extends Component {
   // constructor() {
-  //   super()
-
+  //   super(props);
+   
   // }
 
   render() {
     return (
 
       <div id="singleCard">
-        <h2> AccountName </h2>
+        <h2> {this.props.account.name} </h2>
         <div id="idPanelContainer">
           <div id="idLeftPanel" class="leftPanel">Account Manager
             <input id="input1" type="number" placeholder="Please enter amount" />
