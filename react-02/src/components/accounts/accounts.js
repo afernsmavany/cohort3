@@ -9,7 +9,10 @@ class Accounts extends Component {
     super();
     this.state = {
       nameInput: "",
-      startingBalanceInput: ""
+      startingBalanceInput: "",
+      totalDisplay: "",
+      highestDisplay: "",
+      lowestDisplay: "",
     }
     this.accountManager = new AccountController();
   }
@@ -24,35 +27,66 @@ class Accounts extends Component {
     //minor validition
     //get values from inputs
     //call pojo create handler
-    this.accountManager.createAccount(this.state.nameInput, Number(this.state.startingBalanceInput));
+    this.accountManager.createAccount(this.state.nameInput, this.state.startingBalanceInput);
+    this.calculate();
 
     this.setState({
       nameInput: "",
       startingBalanceInput: ""
     })
-
+    console.log(this.accountManager.highestAccount().balance);
     console.log(this.accountManager.accountList);
   }
 
-  renderCards = () => {
-    console.log(this.accountManager.accountList.map(accountEach => {
-      return <AccountCard
-        key={accountEach.accountName}
-        account={accountEach}
-      // calcReport = {accountEach.calcReport}     
-      // removeAccount = {this.removeAccount}
-      />
-    }))
+  handleDelete = (accountName) => {
+    this.accountManager.removeAccount(accountName);
+    this.calculate();
+    this.setState({
+      nameInput: ""
+    })
+  }
 
+  calculate = () => {
+    this.setState({
+      totalDisplay: this.accountManager.totalAccounts(),
+      highestDisplay: this.accountManager.highestAccount().balance,
+      lowestDisplay: this.accountManager.lowestAccount().balance,
+    })
+  }
+
+//   displayTotal = () => {
+//     this.accountManager.totalAccounts();
+//     this.setState({
+//       nameInput: ""
+//     })
+//   }
+
+//   displayHighest = () => {
+//     this.accountManager.highestAccount();
+//     this.setState({
+//       nameInput: ""
+//     })
+//   }
+
+//  displayLowest = () => {
+//     this.accountManager.lowestAccount();
+//     this.setState({
+//       nameInput: ""
+//     })
+//   }
+
+  renderCards = () => {
+    
     return this.accountManager.accountList.map(accountEach => {
       return <AccountCard
         key={accountEach.accountName}
         account={accountEach}
-      // calcReport = {accountEach.calcReport}     
-      // removeAccount = {this.removeAccount}
+        calculate={this.calculate}
+        removeAccount = {this.handleDelete}
       />
     })
   }
+
 
   render() {
     return (
@@ -70,7 +104,7 @@ class Accounts extends Component {
               onChange={this.handleInputChange} />
             <input
               id="input2"
-              type="text"
+              type="number"
               placeholder="Enter initial balance"
               name="startingBalanceInput"
               value={this.state.startingBalanceInput}
@@ -83,7 +117,10 @@ class Accounts extends Component {
           </div>
 
           <div id="idRightPanel" className="rightPanel"> My Current Balances
-            <h3 id="display">Display Status</h3>
+            <h3 id="display">Total Balance of Accounts: {this.state.totalDisplay}</h3>
+            <h3 id="display">Highest Account: {this.state.highestDisplay}</h3>
+            <h3 id="display">Lowest Account: {this.state.lowestDisplay}</h3>
+
           </div>
         </div>
 
