@@ -34,8 +34,8 @@ class Accounts extends Component {
       nameInput: "",
       startingBalanceInput: ""
     })
-    console.log(this.accountManager.highestAccount().balance);
-    console.log(this.accountManager.accountList);
+    // console.log(this.accountManager.highestAccount().balance);
+    // console.log(this.accountManager.accountList);
   }
 
   handleDelete = (accountName) => {
@@ -54,29 +54,7 @@ class Accounts extends Component {
     })
   }
 
-//   displayTotal = () => {
-//     this.accountManager.totalAccounts();
-//     this.setState({
-//       nameInput: ""
-//     })
-//   }
-
-//   displayHighest = () => {
-//     this.accountManager.highestAccount();
-//     this.setState({
-//       nameInput: ""
-//     })
-//   }
-
-//  displayLowest = () => {
-//     this.accountManager.lowestAccount();
-//     this.setState({
-//       nameInput: ""
-//     })
-//   }
-
   renderCards = () => {
-    
     return this.accountManager.accountList.map(accountEach => {
       return <AccountCard
         key={accountEach.accountName}
@@ -86,7 +64,6 @@ class Accounts extends Component {
       />
     })
   }
-
 
   render() {
     return (
