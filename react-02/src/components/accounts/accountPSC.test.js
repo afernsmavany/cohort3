@@ -1,5 +1,5 @@
 
-import { Account, AccountController } from './account.js';
+import { Account, AccountController } from './accountPSC';
 
 describe('Account Tests', () => {
   const checkingAccount = new Account("Checking Account", 25);

@@ -7,7 +7,7 @@ class CitiesCard extends Component {
     super();
     this.state = {
       updateCityInput: "",
-      updatedBalance: ""
+      updatedPopulation: ""
     }
   }
 
@@ -17,20 +17,20 @@ class CitiesCard extends Component {
     })
   }
 
-  handleDeposit = () => {
-    this.props.account.deposit(Number(this.state.updateCityInput));
+  handleMovedIn = () => {
+    this.props.cities.deposit(Number(this.state.updateCityInput));
     this.setState({
       updateCityInput: "",
-      updatedBalance: this.props.city.population
+      updatedPopulation: this.props.city.population
     })
     this.props.calculate();
   }
 
   handleWithdrawal = () => {
-    this.props.account.withdrawal(Number(this.state.updateCityInput));
+    this.props.cities.withdrawal(Number(this.state.updateCityInput));
     this.setState({
       updateCityInput: "",
-      updatedBalance: this.props.account.population
+      updatedPopulation: this.props.city.population
     })
     this.props.calculate();
   }

@@ -43,7 +43,7 @@ class Cities extends Component {
     // console.log(this.accountManager.accountList);
   }
 
-  handleDelete = (accountName) => {
+  handleDelete = (key) => {
     this.citiesManager.deleteCity(this.key);
     this.calculate();
     this.setState({
@@ -56,9 +56,10 @@ class Cities extends Component {
 
   calculate = () => {
     this.setState({
-      northernMost: this.citiesManager.getMostNorthern(),
-      southernMost: this.citiesManager.getMostSouthern().balance,
-      totalPopulation: this.citiesManager.getPopulation().balance,
+      whichSphere: this.citiesManager.whichSphere(), 
+      northernMost: this.citiesManager.getMostNorthern().latitude,
+      southernMost: this.citiesManager.getMostSouthern().latitude,
+      totalPopulation: this.citiesManager.getPopulation().population,
     })
   }
 
@@ -66,7 +67,7 @@ class Cities extends Component {
     return this.citiesManager.cities.map(cityEach => {
       return <CitiesCard
         key={cityEach.name}
-        account={cityEach}
+        city={cityEach}
         calculate={this.calculate}
         removeCity={this.handleDelete}
       />
@@ -117,9 +118,10 @@ class Cities extends Component {
           </div>
 
           <div id="idRightPanel" className="rightPanel"> City Statistics
-            <h3 id="display">The northern most city is: {this.state.totalDisplay}</h3>
-            <h3 id="display">The southern most city is: {this.state.highestDisplay}</h3>
-            <h3 id="display">The total population of all cities is: {this.state.lowestDisplay}</h3>
+            <h3 id="display">Which sphere is the city in? : {this.state.whichSphere}</h3>
+            <h3 id="display">The northern most city is: {this.state.northernMost}</h3>
+            <h3 id="display">The southern most city is: {this.state.southernMost}</h3>
+            <h3 id="display">The total population of all cities is: {this.state.totalPopulation}</h3>
 
           </div>
         </div>

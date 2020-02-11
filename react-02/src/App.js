@@ -8,6 +8,7 @@ import Xmas4 from './icons/Xmas4.svg';
 import './App.css';
 import Icon from './components/Icon.js';
 import Accounts from './components/accounts/accounts.js';
+import Cities from './components/cities/cities.js';
 
 import Game from './components/tictactoe/Game.js';
 
@@ -31,6 +32,8 @@ class App extends Component {
     if (this.state.selected === Xmas1) return <Starter logo={logo} />;
     if (this.state.selected === Xmas2) return <Game />;
     if (this.state.selected === Xmas3) return <Accounts />;
+    if (this.state.selected === Xmas4) return <Cities />;
+
     // if (this.state.selected === communityIcon) return <CitiesApp />;
     // if (this.state.selected === linkIcon) return <LinkedListApp />;
   }
