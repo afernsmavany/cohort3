@@ -3,9 +3,9 @@ class City {
   constructor(key, name, latitude, longitude, population) {
     this.key = key;
     this.name = name;
-    this.latitude = latitude;
-    this.longitude = longitude;
-    this.population = population;
+    this.latitude = Number(latitude);
+    this.longitude = Number(longitude);
+    this.population = Number(population);
   }
 
   show() {
@@ -49,9 +49,11 @@ class Community {
   }
 
   whichSphere(latitude) {
-    if (this.latitude > 0) { return "Northern Hemisphere" };
-    return "Southern Hemisphere";
-  }
+    if (latitude > 0) {
+      return "Northern Hemisphere";
+    }
+    else { return "Southern Hemisphere"; }
+  };
 
   getMostNorthern() {
     return this.cities.sort((a, b) => b.latitude - a.latitude)[0];

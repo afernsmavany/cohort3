@@ -39,8 +39,6 @@ class Cities extends Component {
       longitude: "",
       population: ""
     })
-    // console.log(this.accountManager.highestAccount().balance);
-    // console.log(this.accountManager.accountList);
   }
 
   handleDelete = (key) => {
@@ -56,11 +54,12 @@ class Cities extends Component {
 
   calculate = () => {
     this.setState({
-      whichSphere: this.citiesManager.whichSphere(), 
+      whichSphere: this.citiesManager.whichSphere(this.state.latitude), 
       northernMost: this.citiesManager.getMostNorthern().latitude,
       southernMost: this.citiesManager.getMostSouthern().latitude,
-      totalPopulation: this.citiesManager.getPopulation().population,
+      totalPopulation: this.citiesManager.getPopulation(),
     })
+    // console.log(this.citiesManager.whichSphere());
   }
 
   renderCards = () => {

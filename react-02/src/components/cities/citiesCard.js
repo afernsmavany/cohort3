@@ -18,7 +18,7 @@ class CitiesCard extends Component {
   }
 
   handleMovedIn = () => {
-    this.props.cities.deposit(Number(this.state.updateCityInput));
+    this.props.cities.movedIn(Number(this.state.updateCityInput));
     this.setState({
       updateCityInput: "",
       updatedPopulation: this.props.city.population
@@ -26,8 +26,8 @@ class CitiesCard extends Component {
     this.props.calculate();
   }
 
-  handleWithdrawal = () => {
-    this.props.cities.withdrawal(Number(this.state.updateCityInput));
+  handleMovedOut = () => {
+    this.props.cities.movedOut(Number(this.state.updateCityInput));
     this.setState({
       updateCityInput: "",
       updatedPopulation: this.props.city.population
