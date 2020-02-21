@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './cities.css';
 import Community from './citiesPSC.js';
 import CitiesCard from './citiesCard.js';
+import fetch_function from './fetch.js';
 
 class Cities extends Component {
   constructor() {
@@ -26,11 +27,9 @@ class Cities extends Component {
   }
 
   handleCreateNewCity = () => {
-    //minor validition
-    //get values from inputs
-    //call pojo create handler
-    this.citiesManager.createCity(this.state.key, this.state.nameInput, this.state.latitude,
+    const newCity = this.citiesManager.createCity(this.state.key, this.state.nameInput, this.state.latitude,
       this.state.longitude, this.state.population);
+    fetch_function.addCity(newCity);
     this.calculate();
 
     this.setState({

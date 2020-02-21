@@ -38,7 +38,7 @@ class CitiesCard extends Component {
   render() {
     return (
           <div id ="card" className = "card">{this.props.city.name}
-          <h3>City:{this.props.city.population }</h3>
+          <h3>Population:{this.props.city.population }</h3>
             <input id="input1" 
             type="number" 
             placeholder="Please enter population" 
