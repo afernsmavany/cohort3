@@ -13,12 +13,12 @@ class CitiesCard extends Component {
 
   handleInputChange2 = event => {
     this.setState({
-      [event.target.name]: event.target.value
+    [event.target.name]: event.target.value
     })
   }
 
   handleMovedIn = () => {
-    this.props.cities.movedIn(Number(this.state.updateCityInput));
+    this.props.city.movedIn(Number(this.state.updateCityInput));
     this.setState({
       updateCityInput: "",
       updatedPopulation: this.props.city.population
@@ -27,7 +27,7 @@ class CitiesCard extends Component {
   }
 
   handleMovedOut = () => {
-    this.props.cities.movedOut(Number(this.state.updateCityInput));
+    this.props.city.movedOut(Number(this.state.updateCityInput));
     this.setState({
       updateCityInput: "",
       updatedPopulation: this.props.city.population
@@ -42,12 +42,12 @@ class CitiesCard extends Component {
             <input id="input1" 
             type="number" 
             placeholder="Please enter population" 
-            name="updateAmountInput"
+            name="updateCityInput"
             value={this.state.updateCityInput}
             onChange={this.handleInputChange2}/>
             <button className="addBalance" id="idAddBalance" onClick={this.handleMovedIn}>Moved In</button>
             <button className="addBalance" id="idAddBalance" onClick={this.handleMovedOut}>Moved Out</button>
-            <button className="addBalance" id="idAddBalance" onClick = { () =>this.props.deleteCity(this.props.city.name)}>Delete Account</button>
+            <button className="addBalance" id="idAddBalance" onClick = { () =>this.props.removeCity(this.props.city.key)}>Delete Account</button>
           </div> 
     );
   }

@@ -35,7 +35,7 @@ const fetch_function = {
     return  await postData(url + "delete", { key: ckey });
   },
 
-  async updateCity(city) {
+  async updateCityPop(city) {
     return  await postData(url + "update", city);
   },
 

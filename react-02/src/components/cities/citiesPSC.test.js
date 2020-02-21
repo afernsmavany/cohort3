@@ -1,5 +1,5 @@
 
-import { City, Community } from './city.js';
+import { City, Community } from './citiesPSC';
 
 const calgary = new City(1, "Calgary", 51.0447, -114.0719, 1250000);
 const edmonton = new City(2, "Edmonton", 53.5461, -113.4938, 981280);
@@ -46,6 +46,7 @@ describe('Community Tests', () => {
   test('Check Delete city', () => {
     communities.createCity(1, "Calgary", 51.0447, 114.0719, 1250000);
     communities.createCity(2, "Edmonton", 53.5461, -113.4938, 981280);
+    console.log(communities.cities);
     communities.deleteCity(1);
     console.log(communities.cities);
     expect(communities.cities.length).toEqual(1);
@@ -57,6 +58,8 @@ describe('Community Tests', () => {
   });
 
   test('Check Northernmost city', () => {
+    communities.createCity(1, "Calgary", 51.0447, 114.0719, 1250000);
+    communities.createCity(2, "Edmonton", 53.5461, -113.4938, 981280);
     communities.getMostNorthern();
     expect(communities.getMostNorthern()).toEqual({"key": 2, "latitude": 53.5461, "longitude": -113.4938, "name": "Edmonton", "population": 981280});
   });

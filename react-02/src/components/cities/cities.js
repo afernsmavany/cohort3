@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import './cities.css';
-import Community from './citiesPSC.js';
+import {Community} from './citiesPSC.js';
 import CitiesCard from './citiesCard.js';
 import fetch_function from './fetch.js';
 
@@ -9,6 +9,7 @@ class Cities extends Component {
   constructor() {
     super();
     this.state = {
+
       nameInput: "",
       latitude: "",
       longitude: "",
@@ -17,6 +18,7 @@ class Cities extends Component {
       southernMost: "",
       totalPopulation: "",
     }
+    this.key = 0;
     this.citiesManager = new Community();
   }
 
@@ -27,7 +29,8 @@ class Cities extends Component {
   }
 
   handleCreateNewCity = () => {
-    const newCity = this.citiesManager.createCity(this.state.key, this.state.nameInput, this.state.latitude,
+    this.key += 1;
+    const newCity = this.citiesManager.createCity(this.key, this.state.nameInput, this.state.latitude,
       this.state.longitude, this.state.population);
     fetch_function.addCity(newCity);
     this.calculate();
@@ -38,10 +41,14 @@ class Cities extends Component {
       longitude: "",
       population: ""
     })
+
+    console.log(this.citiesManager);
   }
 
-  handleDelete = (key) => {
-    this.citiesManager.deleteCity(this.key);
+  handleDelete = (currentKey) => {
+    console.log("In handle Delete")
+    this.citiesManager.deleteCity(currentKey);
+    console.log(this.citiesManager.cities);
     this.calculate();
     this.setState({
       nameInput: "",
@@ -52,19 +59,25 @@ class Cities extends Component {
   }
 
   calculate = () => {
-    this.setState({
-      whichSphere: this.citiesManager.whichSphere(this.state.latitude), 
-      northernMost: this.citiesManager.getMostNorthern().latitude,
-      southernMost: this.citiesManager.getMostSouthern().latitude,
-      totalPopulation: this.citiesManager.getPopulation(),
-    })
+    //New's said fix this!!! add if statement to check if x is undefine. If not (has data), do the setsate
+    console.log(this.citiesManager);
+    let x = this.citiesManager.getMostNorthern();
+    console.log(x);
+    // this.setState({
+    //   whichSphere: this.citiesManager.whichSphere(this.state.latitude), 
+    //   northernMost: this.citiesManager.getMostNorthern().latitude,
+    //   southernMost: this.citiesManager.getMostSouthern().latitude,
+    //   totalPopulation: this.citiesManager.getPopulation(),
+    // })
     // console.log(this.citiesManager.whichSphere());
   }
 
   renderCards = () => {
     return this.citiesManager.cities.map(cityEach => {
+      console.log(cityEach.key)
       return <CitiesCard
-        key={cityEach.name}
+        key={cityEach.key}
+        // key={cityEach.name}
         city={cityEach}
         calculate={this.calculate}
         removeCity={this.handleDelete}

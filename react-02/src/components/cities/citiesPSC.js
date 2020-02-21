@@ -56,7 +56,7 @@ class Community {
   };
 
   getMostNorthern() {
-    return this.cities.sort((a, b) => b.latitude - a.latitude)[0];
+    return this.cities.slice().sort((a, b) => b.latitude - a.latitude)[0];
   }
 
   getMostSouthern() {
@@ -68,4 +68,4 @@ class Community {
   }
 }
 
-export default Community;
+export {City, Community};

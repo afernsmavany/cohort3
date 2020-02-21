@@ -35,6 +35,33 @@ test('test that load works', async () => {
   expect(data.length).toBe(2);
 });
 
+test('test that updateCityPop works', async () => {
+  const province = new Community([]);
+  await fetch_function.postData(url + 'clear');
+  let newCity = province.createCity(7, "Caroline", 52.09, -114.74, 500);
+  await fetch_function.addData(newCity);
+
+  let data = await fetch_function.postData(url + 'all');
+  expect(data.status).toEqual(200);
+  expect(data[0].pop).toBe(500);
+
+  province.getCity(7).movedIn(600);
+  fetch_function.updateData(province.getCity(7));
+
+  data = await fetch_function.postData(url + 'all');
+  expect(data.status).toEqual(200);
+  expect(data[0].pop).toBe(1100);
+
+  province.getCity(7).movedOut(100);
+  fetch_function.updateData(province.getCity(7));
+
+  data = await fetch_function.postData(url + 'all');
+  expect(data.status).toEqual(200);
+  expect(data[0].pop).toBe(1000);
+
+  expect(province.cityList[0]).toEqual(data[0]);
+});
+
 test('test that delete works', async () => {
   let data = await fetch_function.clearAllCities();
   console.log(data);
