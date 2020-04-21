@@ -9,7 +9,6 @@ class Cities extends Component {
   constructor() {
     super();
     this.state = {
-
       nameInput: "",
       latitude: "",
       longitude: "",
@@ -41,7 +40,6 @@ class Cities extends Component {
       longitude: "",
       population: ""
     })
-
     console.log(this.citiesManager);
   }
 
